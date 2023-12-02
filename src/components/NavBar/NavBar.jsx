@@ -1,22 +1,28 @@
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import * as userService from '../../utilities/users-service';
 
 export default function NavBar({ user, setUser }) {
+
+  const navigate = useNavigate();
+
   function handleLogOut() {
     userService.logOut();
     setUser(null);
+    navigate('/');
   }
 
   return (
     <nav>
-      <Link to="/weapons">Weapons</Link>
+      <button onClick={() => navigate('/createChar')}>Creation</button>
       &nbsp; | &nbsp;
-      <Link to="/characters">Characters</Link>
+      <button onClick={() => navigate('/weapons')}>Weapons</button>
+      &nbsp; | &nbsp;
+      <button onClick={() => navigate('/characters')}>Characters</button>
       &nbsp;&nbsp;
-      <Link to="/books">Books</Link>
+      <button onClick={() => navigate('/books')}>Books</button>
       &nbsp;&nbsp;
       <span>Welcome, {user.name}</span>
-      &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
+      &nbsp;&nbsp;<button onClick={handleLogOut}>Log Out</button>
     </nav>
   );
 }
