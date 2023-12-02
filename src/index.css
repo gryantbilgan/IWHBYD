@@ -1,4 +1,15 @@
 /* CSS Custom Properties */
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@font-face {
+  font-family: "Halo";
+  src: url(/public/fonts/Halo.ttf);
+}
+
 :root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
@@ -16,14 +27,27 @@
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-  sans-serif;
+  font-family: "Halo", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
-  padding: 2vmin;
-  height: 100vh;
+}
+
+h1 {
+  font-size: 70px;
+  color: #ffffff;
+  text-align: center;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #eeeeee, 0 0 20px #000000, 0 0 30px #000000, 0 0 40px #000000, 
+                 0 0 50px #9554b3, 0 0 60px #9554b3, 0 0 70px #9554b3;
+  }
+  to {
+    text-shadow: 0 0 20px #eeeeee, 0 0 30px #282be4, 0 0 40px #282be4, 0 0 50px #282be4, 
+                 0 0 60px #282be4, 0 0 70px #282be4, 0 0 80px #282be4;
+  }
 }
 
 code {
