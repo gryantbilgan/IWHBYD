@@ -16,10 +16,33 @@ import sendRequest from "./send-request";
 const OPEN_AI_API_URL = "https://api.openai.com/v1/image-generation-endpoint";
 
 export async function generateImage(prompt) {
-  return sendRequest(OPEN_AI_API_URL, "POST", {
-    model: "dall-e-3",
-    prompt,
-    n: 1,
-    size: "512x512",
-  });
+  try {
+    const res = await sendRequest(OPEN_AI_API_URL, "POST", {
+      model: "dall-e-3",
+      n: 1,
+      size: "512x512",
+    });
+    // check if the response has the expected data
+    if (res && res.data && res.data.data && res.data.data[0]) {
+      const imageUrl = res.data.data[0].url;
+      return imageUrl;
+    } else {
+      // If response structure is unexpected, handle error
+      throw new Error("Unexpected response structure from OpenAI API");
+    }
+  } catch (error) {
+    // Handle specific error conditions or provide generic error message
+    if (error.res && error.res.status === 401) {
+      // Unauthorized - invalid key or insufficient permissions
+      throw new Error("Unauthorized: Invalid API Key");
+    } else if (error.res && error.res.status === 403) {
+      // Forbidden - Key does not have access to the resource
+      throw new Error(
+        "Forbidden: API Key does not have access to the OpenAI API"
+      );
+    } else {
+      // Provide generic error message
+      throw new Error("Error generating image");
+    }
+  }
 }
