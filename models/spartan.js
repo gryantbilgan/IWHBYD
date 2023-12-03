@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const soldierSchema = new Schema({
+const spartanSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
@@ -16,6 +16,10 @@ const soldierSchema = new Schema({
         enum: ["Blue", "Green", "Brown", "Yellow", "Red", "Orange"],
         required: true
     },
+    hairLength: {
+        type: String,
+        enum: ["long", "short", "buzzed", "bald"]
+    },
     eye: {
         type: String,
         enum: ["Blonde", "Brown", "Black", "Grey"],
@@ -26,12 +30,17 @@ const soldierSchema = new Schema({
         enum: ["Mark IV", "Mark V", "Mark VI", "Mark VII"],
         required: true
     },
+    armorColor: {
+        type: String,
+        enum: ["Blue", "Red"],
+        required: true
+    },
     bio: {
         type: String,
         required: true
     }
-}, {
+} , {
     timestamps: true
 });
 
-module.exports = mongoose.model('Soldier', soldierSchema);
+module.exports = mongoose.model('Spartan', spartanSchema);
