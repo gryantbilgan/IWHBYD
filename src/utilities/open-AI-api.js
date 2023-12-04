@@ -12,7 +12,7 @@ import sendRequest from "./send-request";
 //   });
 //   image_url = response.data.data[0].url;
 
-const OPEN_AI_API_URL = "https://api.openai.com/v1/image-generation-endpoint";
+const OPEN_AI_API_URL = "https://api.openai.com/v1/image/generations";
 
 export async function generateImage(prompt) {
   try {
@@ -20,6 +20,8 @@ export async function generateImage(prompt) {
       model: "dall-e-3",
       n: 1,
       size: "512x512",
+      style: "vivid",
+      prompt: `${prompt}`
     });
     // check if the response has the expected data
     if (res && res.data && res.data.data && res.data.data[0]) {

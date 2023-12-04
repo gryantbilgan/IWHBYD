@@ -2,6 +2,7 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+// const openai = require("openai");
 const axios = require("axios");
 // Always require and configure near the top
 require("dotenv").config();
@@ -12,6 +13,7 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Middleware to verify token and assign user object of payload to req.user.
 // Be sure to mount before routes
@@ -26,7 +28,7 @@ const port = process.env.PORT || 3001;
 
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
-app.use("/api/spartans", require("./routes/api/spartans"))
+app.use("/api/spartans", require("./routes/api/spartans"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests
@@ -40,7 +42,7 @@ app.post("/generate", async (req, res) => {
   try {
     // Make a POST request to OpenAI
     const openiAIResponse = await axios.post(
-      "https://api.openai.com/v1/image-generation-endpoint",
+      "https://api.openai.com/v1/images/generations",
       // Send the request payload (data from the client) to OpenAI
       req.body,
       {
