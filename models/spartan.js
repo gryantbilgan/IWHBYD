@@ -13,8 +13,8 @@ const spartanSchema = new Schema({
     },
     hair: {
         type: String,
-        enum: ["Blue", "Green", "Brown", "Yellow", "Red", "Orange"],
-        required: true
+        enum: ["Blonde", "Brown", "Black", "Grey"],
+        required: true 
     },
     hairLength: {
         type: String,
@@ -22,7 +22,7 @@ const spartanSchema = new Schema({
     },
     eye: {
         type: String,
-        enum: ["Blonde", "Brown", "Black", "Grey"],
+        enum: ["Blue", "Green", "Brown", "Yellow", "Red", "Orange"],
         required: true
     },
     armor: {

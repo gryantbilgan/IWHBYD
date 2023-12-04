@@ -1,4 +1,3 @@
-import OpenAI from "openai";
 import sendRequest from "./send-request";
 
 // const openai = new OpenAI({

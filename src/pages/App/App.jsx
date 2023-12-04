@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { getUser } from '../../utilities/users-service';
 import './App.css';
 import AuthPage from '../AuthPage/AuthPage';
-import CreateCharacterPage from '../CreateCharacterPage/CreateCharacterPage';
+import CreateSpartanPage from '../CreateSpartanPage/CreateSpartanPage';
 import BookPage from '../BookPage/BookPage';
 import CharacterPage from '../CharacterPage/CharacterPage';
 import WeaponPage from '../WeaponPage/WeaponPage';
@@ -23,7 +23,7 @@ export default function App() {
               <Route path="/books" element={<BookPage />} />
               <Route path="/characters" element={<CharacterPage />} />
               <Route path="/weapons" element={<WeaponPage />} />
-              <Route path="/createChar" element={<CreateCharacterPage/>} />
+              <Route path="/createSpartan" element={<CreateSpartanPage/>} />
             </Routes>
           </>
           :

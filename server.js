@@ -57,7 +57,7 @@ app.post("/generate", async (req, res) => {
     const generatedImageData = openiAIResponse.data;
     // Send the generated image data as the response to the client
     res.json(generatedImageData);
-  } catch {
+  } catch (error){
     // Handle any errors that occur during the process
     console.error("Error generating image:", error);
     // Send an error response to the client

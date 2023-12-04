@@ -13,7 +13,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav>
-      <button onClick={() => navigate('/createChar')}>Creation</button>
+      <button onClick={() => navigate('/createSpartan')}>Creation</button>
       &nbsp; | &nbsp;
       <button onClick={() => navigate('/weapons')}>Weapons</button>
       &nbsp; | &nbsp;
