@@ -13,7 +13,7 @@ export default function NavBar({ user, setUser }) {
 
   return (
     <nav className='text-white'>
-      <button onClick={() => navigate('/createSpartan')}>Creation</button>
+      <button onClick={() => navigate('/generate')}>Creation</button>
       &nbsp; | &nbsp;
       <button onClick={() => navigate('/weapons')}>Weapons</button>
       &nbsp; | &nbsp;

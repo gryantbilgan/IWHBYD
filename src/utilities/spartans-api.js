@@ -1,5 +1,4 @@
-import sendRequest from "./send-request";
-const BASE_URL = "/api/spartans";
+
 
 // export async function getAllSpartans() {
 //     return sendRequest(BASE_URL)
@@ -9,12 +8,9 @@ const BASE_URL = "/api/spartans";
 //     return sendRequest()
 // }
 
-export default async function createImage(imageData) {
-  try {
-    const response = await sendRequest(BASE_URL, "POST", imageData);
-    return response;
-  } catch (error) {
-    console.error("Error creating image:", error);
-    throw error;
-  }
+import sendRequest from "./send-request";
+const BASE_URL = "/api/spartans/generate";
+
+export function createImage(imageData) {
+    return sendRequest(BASE_URL, "POST", imageData);
 }

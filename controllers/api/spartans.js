@@ -1,5 +1,4 @@
-const Spartan = require("../../models/spartan");
-const axios = require("axios");
+
 
 
 
@@ -29,39 +28,50 @@ const axios = require("axios");
 //   }
 // }
 
-// Handle a POST request to the '/generate-image' endpoint
-    const create = async (req, res) => {
-    // Send a request to OpenAI's image generation endpoint
-    try {
-      // Make a POST request to OpenAI
-      const openiAIResponse = await axios.post(
-        "https://api.openai.com/v1/images/generations",
-        // Send the request payload (data from the client) to OpenAI
-        req.body,
-        {
-          // Include necessary headers for the request
-          headers: {
-            // Add authorization using the OpenAI API key
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-            // Specify that the data being sent is in JSON format
-            "Content-Type": "application/json",
-          },
-        }
-      );
-      // Extract the generated image data from the OpenAI response
-      const generatedImageData = openiAIResponse.data;
-      // Send the generated image data as the response to the client
-      res.json(generatedImageData);
-    } catch (error){
-      // Handle any errors that occur during the process
-      console.error("Error generating image:", error);
-      // Send an error response to the client
-      res.status(500).json({ error: "Internal Server Error" });
-    }
-  };
+const Spartan = require("../../models/spartan");
+const axios = require("axios");
 
-  module.exports = {
-    //   createSpartan,
-        create,
-    
+
+
+const create = async (req, res) => {
+
+  console.log(req.body.description)
+  try {
+    // Prepare the data payload for the OpenAI API call
+    const data = JSON.stringify({
+      "prompt": req.body.description
+    });
+
+    // Configure the Axios request
+    const config = {
+      method: 'post',
+      maxBodyLength: Infinity,
+      url: 'https://api.openai.com/v1/images/generations',
+      headers: { 
+        'Authorization': `Bearer ${process.env.OPENAI_API_KEY}`, 
+        'Content-Type': 'application/json',
+        // Add any additional headers if needed
+      },
+      data: data,
     };
+
+    // Make the Axios request to OpenAI
+    const response = await axios.request(config);
+
+    // Extract the generated image data from the OpenAI response
+    const generatedImageData = response.data;
+
+    // Send the generated image data as the response to the client
+    res.json(generatedImageData);
+  } catch (error) {
+    // Handle any errors that occur during the process
+    console.error("Error generating image:", error);
+    // Send an error response to the client
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+};
+
+module.exports = { create };
+
+
+

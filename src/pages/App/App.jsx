@@ -23,7 +23,7 @@ export default function App() {
               <Route path="/books" element={<BookPage />} />
               <Route path="/characters" element={<CharacterPage />} />
               <Route path="/weapons" element={<WeaponPage />} />
-              <Route path="/createSpartan" element={<CreateSpartanPage/>} />
+              <Route path="/generate" element={<CreateSpartanPage/>} />
             </Routes>
           </>
           :
