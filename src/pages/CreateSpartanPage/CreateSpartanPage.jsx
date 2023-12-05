@@ -1,34 +1,34 @@
 import React from "react";
-import { useState } from "react";
-import * as spartansAPI from "../../utilities/spartans-api";
+// import { useState } from "react";
+// import * as spartansAPI from "../../utilities/spartans-api";
 import CreateImageComponent from "../../components/CreateImageComponent/CreateImageComponent";
 
 export default function CreateSpartanPage() {
-  const [newSpartan, setNewSpartan] = useState({
-    name: "",
-    hair: "Blonde",
-    hairLength: "Long",
-    eye: "Blue",
-    armor: "Mark IV",
-    armorColor: "Blue",
-    bio: "",
-  });
+  // const [newSpartan, setNewSpartan] = useState({
+  //   name: "",
+  //   hair: "Blonde",
+  //   hairLength: "Long",
+  //   eye: "Blue",
+  //   armor: "Mark IV",
+  //   armorColor: "Blue",
+  //   bio: "",
+  // });
 
-  const handleChange = (event) => {
-    setNewSpartan({ ...newSpartan, [event.target.name]: event.target.value });
-  };
+  // const handleChange = (event) => {
+  //   setNewSpartan({ ...newSpartan, [event.target.name]: event.target.value });
+  // };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    try {
-      await spartansAPI.createSpartan(newSpartan);
-    } catch (error) {
-      console.log("Error creating Spartan:", error);
-    }
-  };
+  // const handleSubmit = async (event) => {
+  //   event.preventDefault();
+  //   try {
+  //     await spartansAPI.createSpartan(newSpartan);
+  //   } catch (error) {
+  //     console.log("Error creating Spartan:", error);
+  //   }
+  // };
   return (
     <div className="flex flex-col items-center">
-      <h1>New Spartan</h1>
+      {/* <h1>New Spartan</h1>
       <form
         autoComplete="off"
         onSubmit={handleSubmit}
@@ -111,7 +111,7 @@ export default function CreateSpartanPage() {
         >
           Create Spartan
         </button>
-      </form>
+      </form> */}
       <CreateImageComponent />
     </div>
   );
