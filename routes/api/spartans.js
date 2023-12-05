@@ -4,7 +4,7 @@ const spartansCtrl = require('../../controllers/api/spartans');
 
 // router.get('/spartans', spartansCtrl.getAllSpartans);
 // router.get('/spartans/:id', spartansCtrl.getOneSpartan);
-// router.post('/spartans', spartansCtrl.createSpartan);
+router.post('/spartans', spartansCtrl.createSpartan);
 
 
 module.exports = router;

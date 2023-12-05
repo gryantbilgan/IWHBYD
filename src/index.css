@@ -59,7 +59,11 @@ code {
   height: 100%;
 }
 
-.align-ctr {
+label {
+  color: white;
+}
+
+/* .align-ctr {
   text-align: center;
 }
 
@@ -133,7 +137,7 @@ input {
   border: .1vmin solid var(--tan-3);
   border-radius: .5vmin;
   color: var(--text-dark);
-  background-image: none !important; /* prevent lastpass */
+  background-image: none !important;
   outline: none;
 }
 
@@ -174,4 +178,4 @@ button:disabled, form:invalid button[type="submit"] {
 button[type="submit"] {
   grid-column: span 2;
   margin: 1vmin 0 0;
-}
+} */
