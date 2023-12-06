@@ -26,14 +26,14 @@ export default function CreateImageComponent() {
     event.preventDefault();
     createImageApiCall();
     setInput({
-  name: "",
-  hair: "Blonde",
-  hairLength: "Long",
-  eye: "Blue",
-  armor: "Mark-IV",
-  armorColor: "Blue",
-  bio: "",
-});
+      name: "",
+      hair: "Blonde",
+      hairLength: "Long",
+      eye: "Blue",
+      armor: "Mark-IV",
+      armorColor: "Blue",
+      bio: "",
+    });
   };
 
   const createImageApiCall = async () => {
@@ -153,7 +153,9 @@ export default function CreateImageComponent() {
         </div>
       </form>
       <p className="text-white">Create Image Component</p>
-      <img src={image} />
+      <img 
+        src={image}
+        style={{ maxWidth: "300px", maxHeight: "300px"}} />
       {/* <input
         type="text"
         value={input}
