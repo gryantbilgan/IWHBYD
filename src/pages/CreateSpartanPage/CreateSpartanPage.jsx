@@ -1,54 +1,77 @@
-import React from "react";
-// import { useState } from "react";
-// import * as spartansAPI from "../../utilities/spartans-api";
-import CreateImageComponent from "../../components/CreateImageComponent/CreateImageComponent";
+import React, { useState } from "react";
+import { createImage } from "../../utilities/spartans-api";
 
-export default function CreateSpartanPage() {
-  // const [newSpartan, setNewSpartan] = useState({
-  //   name: "",
-  //   hair: "Blonde",
-  //   hairLength: "Long",
-  //   eye: "Blue",
-  //   armor: "Mark IV",
-  //   armorColor: "Blue",
-  //   bio: "",
-  // });
+export default function CreateImageComponent() {
+  const [image, setImage] = useState("");
+  const [input, setInput] = useState({
+    name: "",
+    hair: "Blonde",
+    hairLength: "Long",
+    eye: "Blue",
+    armor: "Mark-IV",
+    armorColor: "Blue",
+    bio: "",
+  });
 
-  // const handleChange = (event) => {
-  //   setNewSpartan({ ...newSpartan, [event.target.name]: event.target.value });
-  // };
+  const handleChange = (event) => {
+    setInput({ ...input, [event.target.name]: event.target.value });
+  };
 
-  // const handleSubmit = async (event) => {
-  //   event.preventDefault();
-  //   try {
-  //     await spartansAPI.createSpartan(newSpartan);
-  //   } catch (error) {
-  //     console.log("Error creating Spartan:", error);
-  //   }
-  // };
+  const handleClick = (event) => {
+    event.preventDefault();
+    createImageApiCall();
+    setInput({
+      name: "",
+      hair: "Blonde",
+      hairLength: "Long",
+      eye: "Blue",
+      armor: "Mark-IV",
+      armorColor: "Blue",
+      bio: "",
+    });
+  };
+
+  const createImageApiCall = async () => {
+    try {
+      const imageData = {
+        description: input,
+        // Add other properties as needed
+      };
+
+      const result = await createImage(imageData);
+      console.log(result);
+      // const imageUrl = result.data[0].url;
+      // console.log(imageUrl);
+      setImage(result.imageUrl);
+      console.log("Image created successfully:", result);
+    } catch (error) {
+      console.error("Error creating image:", error.message);
+    }
+  };
+
   return (
     <div className="flex flex-col items-center">
-      {/* <h1>New Spartan</h1>
-      <form
-        autoComplete="off"
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-1"
-      >
+      <form autoComplete="off" className="flex flex-col gap-1">
         <div className="flex items-center gap-2">
-          <label htmlFor="name">Name:</label>
+          <label>Name:</label>
           <input
             type="text"
-            id="name"
             name="name"
-            value={newSpartan.name}
+            value={input.name}
             onChange={handleChange}
             required
-            className="border p-2"
+            className="border p-"
           />
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="hair">Hair Color:</label>
-          <select name="hair" id="hair" required className="border p-2">
+          <label>Hair Color:</label>
+          <select
+            name="hair"
+            value={input.hair}
+            onChange={handleChange}
+            required
+            className="border p-2"
+          >
             <option value="Blonde">Blonde</option>
             <option value="Brown">Brown</option>
             <option value="Black">Black</option>
@@ -56,10 +79,11 @@ export default function CreateSpartanPage() {
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="hairLength">Hair Length:</label>
+          <label>Hair Length:</label>
           <select
             name="hairLength"
-            id="hairLength"
+            value={input.hairLength}
+            onChange={handleChange}
             required
             className="border p-2"
           >
@@ -70,8 +94,14 @@ export default function CreateSpartanPage() {
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="eye">Eye Color:</label>
-          <select name="eye" id="eye" required className="border p-2">
+          <label>Eye Color:</label>
+          <select
+            name="eye"
+            value={input.eye}
+            onChange={handleChange}
+            required
+            className="border p-2"
+          >
             <option value="Blue">Blue</option>
             <option value="Green">Green</option>
             <option value="Brown">Brown</option>
@@ -81,19 +111,26 @@ export default function CreateSpartanPage() {
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="armor">Armor Type:</label>
-          <select name="armor" id="armor" required className="border p-2">
-            <option value="Mark IV">Mark IV</option>
-            <option value="Mark V">Mark V</option>
-            <option value="Mark VI">Mark VI</option>
-            <option value="Mark VII">Mark VII</option>
+          <label>Armor Type:</label>
+          <select
+            name="armor"
+            value={input.armor}
+            onChange={handleChange}
+            required
+            className="border p-2"
+          >
+            <option value="Mark-IV">Mark-IV</option>
+            <option value="Mark-V">Mark-V</option>
+            <option value="Mark-VI">Mark-VI</option>
+            <option value="Mark-VII">Mark-VII</option>
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="armorColor">Armor Color:</label>
+          <label>Armor Color:</label>
           <select
             name="armorColor"
-            id="armorColor"
+            value={input.armorColor}
+            onChange={handleChange}
             required
             className="border p-2"
           >
@@ -102,17 +139,24 @@ export default function CreateSpartanPage() {
           </select>
         </div>
         <div className="flex items-center gap-2">
-          <label htmlFor="bio">Bio:</label>
-          <textarea name="bio" id="bio"></textarea>
+          <label>Bio:</label>
+          <textarea
+            name="bio"
+            value={input.bio}
+            onChange={handleChange}
+          ></textarea>
         </div>
-        <button
-          className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-2"
-          type="submit"
-        >
-          Create Spartan
-        </button>
-      </form> */}
-      <CreateImageComponent />
+      </form>
+      <p className="text-white">Create Image Component</p>
+      <img 
+        src={image}
+        style={{ maxWidth: "300px", maxHeight: "300px"}} />
+      <button
+        className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-2 mt-5"
+        onClick={handleClick}
+      >
+        Render
+      </button>
     </div>
   );
 }
