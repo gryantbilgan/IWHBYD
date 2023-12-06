@@ -2,11 +2,11 @@ const Spartan = require("../../models/spartan");
 const axios = require("axios");
 
 const create = async (req, res) => {
-  console.log(req.body.description);
+  console.log(req.body);
   try {
     // Extract Spartan data from request body
     const { user, name, hair, hairLength, eye, armor, armorColor, bio } =
-      req.body;
+      req.body.description;
 
     // Construct the prompt based on properties
     const prompt = `Imagine a Spartan warrior inspired by the iconic characters from the Halo universe. This Spartan, stands tall in a lush forest. With ${hairLength} ${hair} hair flowing in the wind and ${eye} eyes scanning the surroundings with determination, the Spartan is clad in ${armor} armor with a ${armorColor} hue. Confidently holding their helmet under their left arm, the Spartan's ${hair} hair adds to the dynamic scene. The forested landscape provides a picturesque backdrop, with towering trees and vibrant greenery. Capture the essence of this powerful scene in an image, showcasing the Spartan's full body and the serenity of the forest.`;
@@ -31,6 +31,7 @@ const create = async (req, res) => {
 
     // Make the Axios request to OpenAI
     const response = await axios.request(config);
+    console.log("OpenAI API Response:", response.data);
 
     // Extract the generated image data from the OpenAI response
     const generatedImageData = response.data;

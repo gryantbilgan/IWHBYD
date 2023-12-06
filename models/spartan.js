@@ -5,39 +5,39 @@ const spartanSchema = new Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'User',
-        required: true
+        // required: true
     },
     name: {
         type: String,
-        required: true
+        // required: true
     },
     hair: {
         type: String,
         enum: ["Blonde", "Brown", "Black", "Grey"],
-        required: true 
+        // required: true 
     },
     hairLength: {
         type: String,
-        enum: ["long", "short", "buzzed", "bald"]
+        enum: ["Long", "Short", "Buzzed", "Bald"]
     },
     eye: {
         type: String,
         enum: ["Blue", "Green", "Brown", "Yellow", "Red", "Orange"],
-        required: true
+        // required: true
     },
     armor: {
         type: String,
-        enum: ["Mark IV", "Mark V", "Mark VI", "Mark VII"],
-        required: true
+        enum: ["Mark-IV", "Mark-V", "Mark-VI", "Mark-VII"],
+        // required: true
     },
     armorColor: {
         type: String,
         enum: ["Blue", "Red"],
-        required: true
+        // required: true
     },
     bio: {
         type: String,
-        required: true
+        // required: true
     },
     imageUrl: {
         type: String,
