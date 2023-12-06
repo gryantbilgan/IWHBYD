@@ -2,15 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { createImage } from '../../utilities/spartans-api';
 
 export default function CreateImageComponent() {
-  const [image, setImage] = useState()
-  useEffect(() => {
+  const [image, setImage] = useState('')
+  const [input, setInput] = useState('')
+  // const [prompt, setPrompt] = useState('')
+  
+  // useEffect(() => {
+  //   createImageApiCall();
+  // }, [prompt]);
+
+  const handleChange = (event) => {
+    setInput(event.target.value);
+  }
+
+  const handleClick = () => {
     createImageApiCall();
-  }, []);
+    setInput('');
+  }
 
   const createImageApiCall = async () => {
     try {
       const imageData = {
-        description: 'A dog with sunglasses',
+        description: input
         // Add other properties as needed
       };
 
@@ -27,9 +39,11 @@ export default function CreateImageComponent() {
 
   return (
     <>
-      <p>Create Image Component</p>
+      <p className='text-white'>Create Image Component</p>
       <img src={ image }/>
+      <input type="text" value={ input } onChange={handleChange} placeholder='Enter Your Prompt' />
       {/* Add your button content and functionality here */}
+      <button onClick={handleClick}>Render</button>
     </>
   );
 }

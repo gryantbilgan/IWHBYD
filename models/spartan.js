@@ -38,6 +38,9 @@ const spartanSchema = new Schema({
     bio: {
         type: String,
         required: true
+    },
+    imageUrl: {
+        type: String,
     }
 } , {
     timestamps: true

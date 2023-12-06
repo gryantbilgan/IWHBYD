@@ -60,7 +60,7 @@ const create = async (req, res) => {
 
     // Extract the generated image data from the OpenAI response
     const generatedImageData = response.data;
-
+    console.log(generatedImageData.data[0].url)
     // Send the generated image data as the response to the client
     res.json(generatedImageData);
   } catch (error) {
