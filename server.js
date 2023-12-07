@@ -2,6 +2,8 @@ const express = require("express");
 const path = require("path");
 const favicon = require("serve-favicon");
 const logger = require("morgan");
+// const openai = require("openai");
+const axios = require("axios");
 // Always require and configure near the top
 require("dotenv").config();
 // Connect to the database
@@ -23,7 +25,7 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 const port = process.env.PORT || 3001;
-
+// const ensureLoggedIn = require()
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
 app.use("/api/spartans", require("./routes/api/spartans"));
@@ -33,6 +35,9 @@ app.use("/api/spartans", require("./routes/api/spartans"));
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
 });
+
+
+
 
 app.listen(port, function () {
   console.log(`Express app running on port ${port}`);
