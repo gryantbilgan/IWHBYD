@@ -16,7 +16,6 @@ export default function AuthPage({ setUser }) {
     <div className="AuthPage">
       <div>
         <h1 className='AP text-black'>AuthPage</h1>
-        <MusicPlayer />
         {showLoginForm ? (
           <LoginForm setUser={setUser} />
         ) : (
@@ -25,6 +24,7 @@ export default function AuthPage({ setUser }) {
         <button onClick={toggleForm}>
           {showLoginForm ? 'Switch to Sign Up' : 'Switch to Login'}
         </button>
+        <MusicPlayer />
       </div>
     </div>
   );
