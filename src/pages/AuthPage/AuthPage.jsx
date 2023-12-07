@@ -15,7 +15,6 @@ export default function AuthPage({ setUser }) {
   return (
     <div className="AuthPage">
       <div>
-        <h1 className='AP text-black'>AuthPage</h1>
         {showLoginForm ? (
           <LoginForm setUser={setUser} />
         ) : (

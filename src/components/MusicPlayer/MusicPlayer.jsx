@@ -22,7 +22,7 @@ export default function MusicPlayer() {
       <div className="max-w-screen-md mx-auto">
         <button
           onClick={handleTogglePlay}
-          className="bg-blue-500 text-white py-2 px-4 rounded"
+          className="bg-indigo-500 hover:bg-indigo-700 text-white py-2 px-4 rounded"
         >
           {isPlaying ? "Pause Music" : "Play Music"}
         </button>

@@ -7,7 +7,7 @@
   /* left: 50px; */
   /* padding-right: 50px; */
   background-image: url("/public/images/halo-hud.jpeg");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
