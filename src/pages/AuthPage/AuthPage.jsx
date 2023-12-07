@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import MusicPlayer from '../../components/MusicPlayer/MusicPlayer';
 import './AuthPage.css'
 
 export default function AuthPage({ setUser }) {
@@ -15,6 +16,7 @@ export default function AuthPage({ setUser }) {
     <div className="AuthPage">
       <div>
         <h1 className='AP text-black'>AuthPage</h1>
+        <MusicPlayer />
         {showLoginForm ? (
           <LoginForm setUser={setUser} />
         ) : (

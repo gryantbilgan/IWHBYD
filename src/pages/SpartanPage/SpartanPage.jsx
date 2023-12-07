@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllImages } from "../../utilities/spartans-api";
+
+
 export default function SpartanPage() {
   const [generatedImages, setGeneratedImages] = useState([]);
 
@@ -10,6 +12,7 @@ export default function SpartanPage() {
   async function getImages() {
     try {
       const response = await getAllImages();
+      console.log(response)
       setGeneratedImages(response);
     } catch (error) {
       console.log("Error Fetching Images:", error);
@@ -17,9 +20,9 @@ export default function SpartanPage() {
   }
   return (
     <div>
-      <h2>Fire Team DNC</h2>
+      <h2 className="text-white">Fire Team DNC</h2>
       {generatedImages.map((image) => (
-        <div className="text-white" key={image._id}>
+        <div key={image._id} className="text-white">
           <img src={image.imageUrl} alt={`Spartan: ${image.name}`} />
           <p>Name: {image.name}</p>
           <p>Bio: {image.bio}</p>
