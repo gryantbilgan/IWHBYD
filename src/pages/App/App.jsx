@@ -6,6 +6,7 @@ import AuthPage from '../AuthPage/AuthPage';
 import CreateSpartanPage from '../CreateSpartanPage/CreateSpartanPage';
 import BookPage from '../BookPage/BookPage';
 import CharacterPage from '../CharacterPage/CharacterPage';
+import SpartanPage from '../SpartanPage/SpartanPage';
 import WeaponPage from '../WeaponPage/WeaponPage';
 import NavBar from '../../components/NavBar/NavBar';
 
@@ -24,6 +25,7 @@ export default function App() {
               <Route path="/characters" element={<CharacterPage />} />
               <Route path="/weapons" element={<WeaponPage />} />
               <Route path="/generate" element={<CreateSpartanPage/>} />
+              <Route path="/" element={<SpartanPage/>} />
             </Routes>
           </>
           :
