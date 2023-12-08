@@ -16,7 +16,7 @@ export default function NavBar({ user, setUser }) {
         className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
         onClick={() => navigate("/generate")}
       >
-        Creation
+        Recruit
       </button>
       &nbsp; | &nbsp;
       <button

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { createImage } from "../../utilities/spartans-api";
+import { useNavigate } from "react-router-dom";
 
 export default function CreateImageComponent() {
+  const navigate = useNavigate();
   const [image, setImage] = useState("");
   const [input, setInput] = useState({
     name: "",
@@ -57,7 +59,13 @@ export default function CreateImageComponent() {
 
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="form-container bg-black p-2 rounded shadow-md w-full max-w-md flex flex-col items-center">
+      <div className="form-container bg-black p-2 rounded shadow-md w-full max-w-md flex flex-col items-center" style={{ maxHeight: "1000px", maxWidth: "500px", margin: "auto" }}>
+        <button
+          className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-6"
+          onClick={() => navigate("/")}
+        >
+          Spartans
+        </button>
         <div style={{ display: formSubmitted ? "none" : "block" }}>
           <form autoComplete="off">
             <div className="mb-1">
@@ -182,7 +190,7 @@ export default function CreateImageComponent() {
             <div className="mb-1">
               <img
                 src={image}
-                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                style={{ maxWidth: "256px", maxHeight: "256px" }}
                 alt="Generated Spartan"
               />
             </div>
