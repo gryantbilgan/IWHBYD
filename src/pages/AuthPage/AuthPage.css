@@ -4,16 +4,9 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  /* left: 50px; */
-  /* padding-right: 50px; */
   background-image: url("/public/images/halo-hud.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
-  /* border: 10px solid;
-  border-image-slice: 1;
-  border-width: 15px;
-  border-image-source: linear-gradient(to left, rgba(68,5,173,1), rgba(92,158,93,1), rgba(11,57,176,1)); */
-  /* padding: 5px; */
 }

@@ -1,30 +1,30 @@
 // src/components/LoginForm/LoginForm.jsx
-import { useState } from 'react';
-import * as usersService from '../../utilities/users-service';
+import { useState } from "react";
+import * as usersService from "../../utilities/users-service";
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({
-    email: '',
-    password: ''
+    email: "",
+    password: "",
   });
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
+    setError("");
   }
 
   async function handleSubmit(evt) {
     // Prevent form from being submitted to the server
     evt.preventDefault();
     try {
-      // The promise returned by the signUp service method 
+      // The promise returned by the signUp service method
       // will resolve to the user object included in the
       // payload of the JSON Web Token (JWT)
       const user = await usersService.login(credentials);
       setUser(user);
     } catch {
-      setError('Log In Failed - Try Again');
+      setError("Log In Failed - Try Again");
     }
   }
 
@@ -33,7 +33,12 @@ export default function LoginForm({ setUser }) {
       <div className="form-container bg-black p-8 rounded shadow-md w-full max-w-md flex flex-col items-center">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-white text-sm font-bold mb-2">Email</label>
+            <label
+              htmlFor="email"
+              className="block text-white text-sm font-bold mb-2"
+            >
+              Email
+            </label>
             <input
               type="text"
               id="email"
@@ -45,7 +50,12 @@ export default function LoginForm({ setUser }) {
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-white text-sm font-bold mb-2">Password</label>
+            <label
+              htmlFor="password"
+              className="block text-white text-sm font-bold mb-2"
+            >
+              Password
+            </label>
             <input
               type="password"
               id="password"

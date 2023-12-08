@@ -15,6 +15,7 @@ export default function CreateImageComponent() {
     bio: "",
   });
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (event) => {
     setInput({ ...input, [event.target.name]: event.target.value });
@@ -22,7 +23,9 @@ export default function CreateImageComponent() {
 
   const handleClick = async (event) => {
     event.preventDefault();
+    setLoading(true);
     await createImageApiCall();
+    setLoading(false);
     setFormSubmitted(true);
   };
 
@@ -59,7 +62,10 @@ export default function CreateImageComponent() {
 
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="form-container bg-black p-2 rounded shadow-md w-full max-w-md flex flex-col items-center" style={{ maxHeight: "1000px", maxWidth: "500px", margin: "auto" }}>
+      <div
+        className="form-container bg-black p-2 rounded shadow-md w-full max-w-md flex flex-col items-center"
+        style={{ maxHeight: "1000px", maxWidth: "500px", margin: "auto" }}
+      >
         <button
           className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mb-6"
           onClick={() => navigate("/")}
@@ -181,7 +187,13 @@ export default function CreateImageComponent() {
               className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               onClick={handleClick}
             >
-              Render
+              {loading ? (
+                <div className="flex items-center justify-center">
+                  <div className="animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-l-4 border-r-4 border-lime-500"></div>
+                </div>
+              ) : (
+                "Render"
+              )}
             </button>
           </form>
         </div>
