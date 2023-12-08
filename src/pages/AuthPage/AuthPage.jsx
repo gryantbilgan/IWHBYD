@@ -20,7 +20,9 @@ export default function AuthPage({ setUser }) {
         ) : (
           <SignUpForm setUser={setUser} />
         )}
-        <button onClick={toggleForm}>
+        <button 
+          onClick={toggleForm}
+          className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-6">
           {showLoginForm ? 'Switch to Sign Up' : 'Switch to Login'}
         </button>
         <MusicPlayer />

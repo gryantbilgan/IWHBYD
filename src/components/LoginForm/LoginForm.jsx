@@ -30,10 +30,10 @@ export default function LoginForm({ setUser }) {
 
   return (
     <div className="flex items-center justify-center h-full">
-      <div className="form-container bg-white p-8 rounded shadow-md w-full max-w-md">
+      <div className="form-container bg-black p-8 rounded shadow-md w-full max-w-md flex flex-col items-center">
         <form autoComplete="off" onSubmit={handleSubmit}>
           <div className="mb-4">
-            <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+            <label htmlFor="email" className="block text-white text-sm font-bold mb-2">Email</label>
             <input
               type="text"
               id="email"
@@ -45,7 +45,7 @@ export default function LoginForm({ setUser }) {
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+            <label htmlFor="password" className="block text-white text-sm font-bold mb-2">Password</label>
             <input
               type="password"
               id="password"
@@ -63,8 +63,8 @@ export default function LoginForm({ setUser }) {
             LOG IN
           </button>
         </form>
+        <p className="error-message mt-4">{error}</p>
       </div>
-      <p className="error-message mt-4 text-red-500">{error}</p>
     </div>
   );
 }

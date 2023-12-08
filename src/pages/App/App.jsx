@@ -15,10 +15,10 @@ export default function App() {
 
   return (
     <div className="App">
+      <h1>IWHBYD</h1>
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />
-            <h1>IWHBYD</h1>
             <Routes>
               {/* Route components in here */}
               <Route path="/books" element={<BookPage />} />

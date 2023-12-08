@@ -1,19 +1,19 @@
-import { Component } from 'react';
-import { signUp } from '../../utilities/users-service';
+import { Component } from "react";
+import { signUp } from "../../utilities/users-service";
 
 export default class SignUpForm extends Component {
   state = {
-    name: '',
-    email: '',
-    password: '',
-    confirm: '',
-    error: ''
+    name: "",
+    email: "",
+    password: "",
+    confirm: "",
+    error: "",
   };
 
   handleChange = (evt) => {
     this.setState({
       [evt.target.name]: evt.target.value,
-      error: ''
+      error: "",
     });
   };
 
@@ -25,7 +25,7 @@ export default class SignUpForm extends Component {
       const user = await signUp(formData);
       this.props.setUser(user);
     } catch {
-      this.setState({ error: 'Sign Up Failed - Try Again' });
+      this.setState({ error: "Sign Up Failed - Try Again" });
     }
   };
 
@@ -33,10 +33,15 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div className="flex items-center justify-center h-full">
-        <div className="form-container bg-white p-8 rounded shadow-md w-full max-w-md">
+        <div className="form-container bg-black p-8 rounded shadow-md w-full max-w-md flex flex-col items-center">
           <form autoComplete="off" onSubmit={this.handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="name" className="block text-gray-700 text-sm font-bold mb-2">Name</label>
+              <label
+                htmlFor="name"
+                className="block text-white text-sm font-bold mb-2"
+              >
+                Name
+              </label>
               <input
                 type="text"
                 id="name"
@@ -48,7 +53,12 @@ export default class SignUpForm extends Component {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email</label>
+              <label
+                htmlFor="email"
+                className="block text-white text-sm font-bold mb-2"
+              >
+                Email
+              </label>
               <input
                 type="email"
                 id="email"
@@ -60,7 +70,12 @@ export default class SignUpForm extends Component {
               />
             </div>
             <div className="mb-4">
-              <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password</label>
+              <label
+                htmlFor="password"
+                className="block text-white text-sm font-bold mb-2"
+              >
+                Password
+              </label>
               <input
                 type="password"
                 id="password"
@@ -72,7 +87,12 @@ export default class SignUpForm extends Component {
               />
             </div>
             <div className="mb-6">
-              <label htmlFor="confirm" className="block text-gray-700 text-sm font-bold mb-2">Confirm</label>
+              <label
+                htmlFor="confirm"
+                className="block text-white text-sm font-bold mb-2"
+              >
+                Confirm
+              </label>
               <input
                 type="password"
                 id="confirm"
@@ -91,8 +111,8 @@ export default class SignUpForm extends Component {
               SIGN UP
             </button>
           </form>
+          <p className="error-message mt-4">{this.state.error}</p>
         </div>
-        <p className="error-message mt-4 text-red-500">{this.state.error}</p>
       </div>
     );
   }
