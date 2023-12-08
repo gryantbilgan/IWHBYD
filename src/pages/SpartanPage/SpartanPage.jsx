@@ -20,7 +20,9 @@ export default function SpartanPage() {
 
   return (
     <div className="flex flex-wrap min-h-1/2 text-white p-4">
-      <h2 className="text-lg font-bold mb-4 w-full text-center">Fire Team DNC</h2>
+      <h2 className="neon-text text-lg font-bold mb-4 w-full text-center">
+        Fire Team DNC
+      </h2>
       {generatedImages.map((image) => (
         <div
           key={image._id}
