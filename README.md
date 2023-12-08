@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="1423" alt="Halo Background Gif" src="https://media2.giphy.com/media/b57svweUwVtDWYyVXj/giphy.gif?cid=ecf05e4718v9yhr6w1iahjwb6874og14pda4ptz1873fybgl&ep=v1_gifs_search&rid=giphy.gif&ct=g">
+<img width="1423" alt="spartan-gif" src="https://media2.giphy.com/media/b57svweUwVtDWYyVXj/giphy.gif?cid=ecf05e4770k9lzufa0nawfr8uy8ww00043zwh54odod4pk9r&ep=v1_gifs_search&rid=giphy.gif&ct=g">
 
 # IWHBYD
 
