@@ -1,6 +1,6 @@
 <div align="center">
 
-<img width="1423" alt="spartan-gif" src="https://media2.giphy.com/media/b57svweUwVtDWYyVXj/giphy.gif?cid=ecf05e4770k9lzufa0nawfr8uy8ww00043zwh54odod4pk9r&ep=v1_gifs_search&rid=giphy.gif&ct=g">
+<img width="1423" alt="spartan-gif" src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExamlkM3E1azkzdHAweWdoc3l0eTRiYzJkbTJ2aDgxNzZ0ejJiZXhtOCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cbD05R3PH8bDhDqizW/source.gif">
 
 # IWHBYD
 
