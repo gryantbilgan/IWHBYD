@@ -38,7 +38,11 @@ h1 {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-
+.neon-text {
+  color: #ffffff;
+  text-align: center;
+  animation: glow 2s ease-in-out infinite alternate;
+}
 
 @keyframes glow {
   from {

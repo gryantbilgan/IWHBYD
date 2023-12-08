@@ -25,10 +25,10 @@ app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
 const port = process.env.PORT || 3001;
-// const ensureLoggedIn = require()
+const ensureLoggedIn = require('./config/ensureLoggedIn');
 // Put API routes here, before the "catch all" route
 app.use("/api/users", require("./routes/api/users"));
-app.use("/api/spartans", require("./routes/api/spartans"));
+app.use("/api/spartans",ensureLoggedIn, require("./routes/api/spartans"));
 
 // The following "catch all" route (note the *) is necessary
 // to return the index.html on all non-AJAX/API requests

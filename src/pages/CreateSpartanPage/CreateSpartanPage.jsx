@@ -12,23 +12,16 @@ export default function CreateImageComponent() {
     armorColor: "Blue",
     bio: "",
   });
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   const handleChange = (event) => {
     setInput({ ...input, [event.target.name]: event.target.value });
   };
 
-  const handleClick = (event) => {
+  const handleClick = async (event) => {
     event.preventDefault();
-    createImageApiCall();
-    setInput({
-      name: "",
-      hair: "Blonde",
-      hairLength: "Long",
-      eye: "Blue",
-      armor: "Mark-IV",
-      armorColor: "Blue",
-      bio: "",
-    });
+    await createImageApiCall();
+    setFormSubmitted(true);
   };
 
   const createImageApiCall = async () => {
@@ -49,114 +42,163 @@ export default function CreateImageComponent() {
     }
   };
 
+  const resetForm = () => {
+    setFormSubmitted(false);
+    setInput({
+      name: "",
+      hair: "Blonde",
+      hairLength: "Long",
+      eye: "Blue",
+      armor: "Mark-IV",
+      armorColor: "Blue",
+      bio: "",
+    });
+  };
+
   return (
-    <div className="flex flex-col items-center">
-      <form autoComplete="off" className="flex flex-col gap-1">
-        <div className="flex items-center gap-2">
-          <label>Name:</label>
-          <input
-            type="text"
-            name="name"
-            value={input.name}
-            onChange={handleChange}
-            required
-            className="border p-"
-          />
+    <div className="flex items-center justify-center h-full">
+      <div className="form-container bg-black p-2 rounded shadow-md w-full max-w-md flex flex-col items-center">
+        <div style={{ display: formSubmitted ? "none" : "block" }}>
+          <form autoComplete="off">
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Name:
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={input.name}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              />
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Hair Color:
+              </label>
+              <select
+                name="hair"
+                value={input.hair}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="Blonde">Blonde</option>
+                <option value="Brown">Brown</option>
+                <option value="Black">Black</option>
+                <option value="Grey">Grey</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Hair Length:
+              </label>
+              <select
+                name="hairLength"
+                value={input.hairLength}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="Long">Long</option>
+                <option value="Short">Short</option>
+                <option value="Buzzed">Buzzed</option>
+                <option value="Bald">Bald</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Eye Color:
+              </label>
+              <select
+                name="eye"
+                value={input.eye}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="Blue">Blue</option>
+                <option value="Green">Green</option>
+                <option value="Brown">Brown</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Red">Red</option>
+                <option value="Orange">Orange</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Armor Type:
+              </label>
+              <select
+                name="armor"
+                value={input.armor}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="Mark-IV">Mark-IV</option>
+                <option value="Mark-V">Mark-V</option>
+                <option value="Mark-VI">Mark-VI</option>
+                <option value="Mark-VII">Mark-VII</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Armor Color:
+              </label>
+              <select
+                name="armorColor"
+                value={input.armorColor}
+                onChange={handleChange}
+                required
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              >
+                <option value="Blue">Blue</option>
+                <option value="Red">Red</option>
+              </select>
+            </div>
+            <div className="mb-1">
+              <label className="block text-white text-sm font-bold mb-2">
+                Bio:
+              </label>
+              <textarea
+                name="bio"
+                value={input.bio}
+                onChange={handleChange}
+                className="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              ></textarea>
+            </div>
+            <button
+              className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={handleClick}
+            >
+              Render
+            </button>
+          </form>
         </div>
-        <div className="flex items-center gap-2">
-          <label>Hair Color:</label>
-          <select
-            name="hair"
-            value={input.hair}
-            onChange={handleChange}
-            required
-            className="border p-2"
-          >
-            <option value="Blonde">Blonde</option>
-            <option value="Brown">Brown</option>
-            <option value="Black">Black</option>
-            <option value="Grey">Grey</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Hair Length:</label>
-          <select
-            name="hairLength"
-            value={input.hairLength}
-            onChange={handleChange}
-            required
-            className="border p-2"
-          >
-            <option value="Long">Long</option>
-            <option value="Short">Short</option>
-            <option value="Buzzed">Buzzed</option>
-            <option value="Bald">Bald</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Eye Color:</label>
-          <select
-            name="eye"
-            value={input.eye}
-            onChange={handleChange}
-            required
-            className="border p-2"
-          >
-            <option value="Blue">Blue</option>
-            <option value="Green">Green</option>
-            <option value="Brown">Brown</option>
-            <option value="Yellow">Yellow</option>
-            <option value="Red">Red</option>
-            <option value="Orange">Orange</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Armor Type:</label>
-          <select
-            name="armor"
-            value={input.armor}
-            onChange={handleChange}
-            required
-            className="border p-2"
-          >
-            <option value="Mark-IV">Mark-IV</option>
-            <option value="Mark-V">Mark-V</option>
-            <option value="Mark-VI">Mark-VI</option>
-            <option value="Mark-VII">Mark-VII</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Armor Color:</label>
-          <select
-            name="armorColor"
-            value={input.armorColor}
-            onChange={handleChange}
-            required
-            className="border p-2"
-          >
-            <option value="Blue">Blue</option>
-            <option value="Red">Red</option>
-          </select>
-        </div>
-        <div className="flex items-center gap-2">
-          <label>Bio:</label>
-          <textarea
-            name="bio"
-            value={input.bio}
-            onChange={handleChange}
-          ></textarea>
-        </div>
-      </form>
-      <p className="text-white">Create Image Component</p>
-      <img 
-        src={image}
-        style={{ maxWidth: "300px", maxHeight: "300px"}} />
-      <button
-        className="bg-violet-500 hover:bg-violet-600 active:bg-violet-700 focus:outline-none focus:ring focus:ring-violet-300 p-2 mt-5"
-        onClick={handleClick}
-      >
-        Render
-      </button>
+        {formSubmitted && (
+          <>
+            <div className="mb-1">
+              <img
+                src={image}
+                style={{ maxWidth: "300px", maxHeight: "300px" }}
+                alt="Generated Spartan"
+              />
+            </div>
+            <div className="mb-1">
+              <p className="text-white">Name: {input.name}</p>
+              <p className="text-white">Bio: {input.bio}</p>
+            </div>
+            <button
+              className="bg-lime-500 hover:bg-lime-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+              onClick={resetForm}
+            >
+              Create New Spartan
+            </button>
+          </>
+        )}
+      </div>
     </div>
   );
 }

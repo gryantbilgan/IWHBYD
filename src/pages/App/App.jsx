@@ -15,7 +15,7 @@ export default function App() {
 
   return (
     <div className="App">
-      <h1>IWHBYD</h1>
+      {/* <h1 className='neon-text'>IWHBYD</h1> */}
       { user ?
           <>
             <NavBar user={user} setUser={setUser} />
