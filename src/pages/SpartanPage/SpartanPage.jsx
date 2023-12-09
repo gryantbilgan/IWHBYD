@@ -26,7 +26,7 @@ export default function SpartanPage() {
       {generatedImages.map((image) => (
         <div
           key={image._id}
-          className="bg-gray-800 p-2 rounded-md mb-4 max-w-xs w-1/5 mx-2 h-1/4"
+          className="bg-gray-800 p-2 rounded-md mb-4 max-w-xs w-1/6 mx-2 h-1/6"
         >
           <img
             src={image.imageUrl}

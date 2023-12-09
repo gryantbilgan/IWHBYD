@@ -10,20 +10,10 @@ const create = async (req, res) => {
 
     // Construct the prompt based on properties
     const prompt =
-      //`Generate an image of a Spartan warrior inspired by the iconic characters from the Halo universe. The Spartan stands tall in a vast desert landscape, with their face clearly visible. The Spartan has ${hair} hair of ${hairLength} length, flowing in the wind. Their eyes, colored ${eye}, scan the surroundings with determination.The Spartan is clad in ${armor} armor with a ${armorColor} hue. Confidently holding their helmet under their left arm, the Spartan's [choose hair color] hair adds to the dynamic scene. The surrounding desert provides a dramatic backdrop, with rolling dunes and a clear sky. Capture the essence of this powerful scene, showcasing the Spartan from head to toe.`
+      // `Generate an image of a Spartan warrior inspired by the iconic characters from the Halo universe. The Spartan stands tall in a vast desert landscape, with their face clearly visible. The Spartan has ${hair} hair of ${hairLength} length, flowing in the wind. Their eyes, colored ${eye}, scan the surroundings with determination.The Spartan is clad in ${armor} armor with a ${armorColor} hue. Confidently holding their helmet under their left arm, the Spartan's [choose hair color] hair adds to the dynamic scene. The surrounding desert provides a dramatic backdrop, with rolling dunes and a clear sky. Capture the essence of this powerful scene, showcasing the Spartan from head to toe.`
 
-      `Generate a vivid image of a Spartan warrior inspired by the iconic characters from the Bungie's Halo universe. In a desert landscape, depict the Spartan standing upright, facing forward, and holding their helmet securely under their left arm. Ensure the face of the Spartan is clearly visible with distinctive facial features.
+      `In a vast desert beneath an azure sky, a futuristic sci-fi Spartan soldier, clad in cutting-edge ${armor} armor, stands tall as an imposing figure. The super-soldier's helmet cradled under his left arm reveals distinct features—${hairLength}, ${hair} hair flowing, and piercing ${eye} eyes. The ${armorColor}-hued exoskeleton enhances strength and speed, its intricate details visible from head to toe. The soldier's muscular build, seamlessly integrated with the armor, creates a formidable presence amid the tranquil oasis. Sunlight casts a warm, golden glow, symbolizing advanced technology and unwavering strength. This captivating scene blends sci-fi futurism with the timeless beauty of the desert, capturing the essence of a super-soldier.`
 
-    For the Spartan's appearance:
-    - Hair Color: ${hair}
-    - Hair Length: ${hairLength}
-    - Eye Color: ${eye}
-
-    Regarding the armor:
-    - Armor Type: ${armor}
-    - Armor Color: ${armorColor}
-
-    Capture the essence of the Halo universe by emphasizing the unique and futuristic characteristics of the futuristic Spartan, ensuring a modern and recognizable interpretation. The focus should be on the Spartan's interaction with the desert environment and the distinct portrayal of their armor, facial features, and the act of holding the helmet.`;
 
     // Prepare the data payload for the OpenAI API call
     const data = JSON.stringify({
