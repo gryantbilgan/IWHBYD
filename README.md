@@ -30,7 +30,7 @@
 
 ## [IWHBYD](https://iwhbyd-558e77ba8bb6.herokuapp.com/)
 
-###_IWHBYD_** is Full Stack React Web Application that utilizes Node.js, Express.js, React, MongoDB, Mongoose, Tailwind CSS, and JavaScript that allows users to "Finish the Fight". Stand shoulder to should along side Master Chief and the other brave spartans of UNSC from the Halo Universe. Users will be able to pick specific characteristics for themselves or to create a new character and generate an image of their Spartan. Prove that soldiers and humanity aren't two different things, that soldiers aren't machines. Do you need a weapon...?
+**_IWHBYD_** is Full Stack React Web Application that utilizes Node.js, Express.js, React, MongoDB, Mongoose, Tailwind CSS, and JavaScript that allows users to "Finish the Fight". Stand shoulder to should along side Master Chief and the other brave spartans of UNSC from the Halo Universe. Users will be able to pick specific characteristics for themselves or to create a new character and generate an image of their Spartan. Prove that soldiers and humanity aren't two different things, that soldiers aren't machines. Do you need a weapon...?
 
 ## :link: Associated Links:
 
