@@ -110,7 +110,7 @@ const data = JSON.stringify({
 
 <div align="center">
 
-#### This code is part of a much larger function that makes the call to the OpenAI image generator by making an Axios request. The request is set a configure variable with a "POST" method, a maximum body length of infinity for the prompt, the url endpoint, a header that is authorized by having an OpenAI API key, storing having data that is set to a url.
+#### This code block sets up an HTTP POST request using Axios to communicate with the OpenAI image generation API. It first converts a prompt into a JSON string and then configures the request with various parameters: it specifies the POST method, allows for an unlimited body length, and sets the endpoint URL for the API. The request headers include an authorization token (API key) for authentication and a content type indicating JSON format. Finally, the JSON string containing the prompt is included as the request body, ready to be sent to the API to generate an image based on the provided prompt.
 
 ## Plans for the future:
 
